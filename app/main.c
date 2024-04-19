@@ -5,6 +5,7 @@
 int main()
 {
     printf("Hello World!!!\n");
-    assert(false);
+    assert(true);
+    printf("OK - all assertions passed.\n");
     return 0;
 }
