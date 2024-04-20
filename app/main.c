@@ -2,6 +2,8 @@
 #include <assert.h>
 #include <stdbool.h>
 
+#include "../src/ip_manager.h"
+
 int main()
 {
     printf("Hello World!!!\n");
