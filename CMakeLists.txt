@@ -4,6 +4,7 @@ set(CMAKE_C_STANDARD 11)
 
 set(PROJECT_NAME IPV4_MANAGER)
 
+project(${PROJECT_NAME})
 
 add_executable(${PROJECT_NAME}
 ${CMAKE_CURRENT_SOURCE_DIR}/app/main.c
