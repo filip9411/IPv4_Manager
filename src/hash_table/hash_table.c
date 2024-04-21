@@ -4,7 +4,7 @@
 #include <string.h>
 
 
-#define CAPACITY 50000 // Size of the HashTable.
+#define CAPACITY 50000 // Size of the hash_table.
 
 /**
  * @brief Compute has for key passed.
@@ -22,28 +22,27 @@ uint32_t hashFunction(char* str)
     return i % CAPACITY;
 }
 
-typedef struct hash_table
-{
-    // Contains an array of pointers to items.
-    hash_table_item** items;
-    int size;
-    int count;
-} hash_table;
-
-/**
- * @brief Create a item object
- * 
- * @param key 
- * @param value 
- * @return hash_table_item* 
- */
 hash_table_item* createItem(uint32_t* key, char* value)
 {
-    // Creates a pointer to a new HashTable item.
+    // Creates a pointer to a new hash_table item.
     hash_table_item* item = (hash_table_item*) malloc(sizeof(hash_table_item));
     item->key = (uint32_t*) malloc(sizeof(uint32_t));
     item->value = (char*) malloc(strlen(value) + 1);
     memcpy(item->key, key, sizeof(uint32_t));
     memcpy(item->value, value, sizeof(char));
     return item;
+}
+
+hash_table* create_table(int size)
+{
+    // Creates a new hash_table.
+    hash_table* table = (hash_table*) malloc(sizeof(hash_table));
+    table->size = size;
+    table->count = 0;
+    table->items = (hash_table_item**) calloc(table->size, sizeof(hash_table_item*));
+
+    for (int i = 0; i < table->size; i++)
+        table->items[i] = NULL;
+
+    return table;
 }
