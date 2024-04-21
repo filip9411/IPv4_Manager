@@ -40,5 +40,14 @@ hash_table* create_table(int size);
  */
 void print_table(hash_table* table);
 
+/**
+ * @brief 
+ * 
+ * @param table 
+ * @param key 
+ * @param value 
+ */
+void insert(hash_table* table, uint32_t* key, char* value);
+
 
 #endif /* D08DC2F2_EEE3_4E82_A17A_E058AFC647FB */

@@ -1,8 +1,9 @@
 #include <stdint.h>
 #include <stdlib.h>
-#include "hash_table.h"
 #include <string.h>
 #include <stdio.h>
+
+#include "hash_table.h"
 
 
 #define CAPACITY 50000 // Size of the hash_table.
@@ -13,7 +14,7 @@
  * @param str 
  * @return unsigned long 
  */
-uint32_t hashFunction(char* str)
+uint32_t hashFunction(uint32_t* str)
 {
     uint32_t i = 0;
 
@@ -94,4 +95,30 @@ void print_table(hash_table* table)
     }
 
     printf("-------------------\n\n");
+}
+
+void insert(hash_table* table, uint32_t* key, char* value)
+{
+    hash_table_item* new_item = createItem(key, value);
+    int32_t index = hashFunction(key);
+
+    hash_table_item* current_item = table->items[index];
+    if(current_item = NULL)
+    {
+        // Key does not exist
+        if (table->count == table->size)
+        {
+            // HashTable is full.
+            printf("Insert Error: Hash Table is full\n");
+            free_item(new_item);
+            return;
+        }
+
+        table->items[index] = new_item;
+        table->count++;
+    } else
+    {
+        // Key already exists in the hash table. Update only the value.
+    }
+    return;
 }
