@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "hash_table.h"
 #include <string.h>
+#include <stdio.h>
 
 
 #define CAPACITY 50000 // Size of the hash_table.
@@ -78,4 +79,19 @@ void free_table(hash_table* table)
 
     free(table->items);
     free(table);
+}
+
+void print_table(hash_table* table)
+{
+    printf("\nHash Table\n-------------------\n");
+
+    for (int i = 0; i < table->size; i++)
+    {
+        if (table->items[i])
+        {
+            printf("Index:%d, Key:%u, Value:%s\n", i, *(table->items[i] -> key), table->items[i]->value);
+        }
+    }
+
+    printf("-------------------\n\n");
 }

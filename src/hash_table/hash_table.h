@@ -33,5 +33,12 @@ hash_table_item* createItem(uint32_t* key, char* value);
  */
 hash_table* create_table(int size);
 
+/**
+ * @brief 
+ * 
+ * @param table 
+ */
+void print_table(hash_table* table);
+
 
 #endif /* D08DC2F2_EEE3_4E82_A17A_E058AFC647FB */
