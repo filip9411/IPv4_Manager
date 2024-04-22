@@ -98,7 +98,7 @@ void insertItem(hash_table* table, uint32_t key, char value)
     int32_t index = hashFunction(key);
 
     hash_table_item* current_item = table->items[index];
-    if(current_item = NULL)
+    if(current_item == NULL)
     {
         // Key does not exist
         if (table->count == table->size)
