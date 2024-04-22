@@ -4,8 +4,8 @@
 // Defines the HashTable item.
 typedef struct hash_table_item
 {
-    uint32_t* key;
-    char* value;
+    uint32_t key;
+    char value;
 } hash_table_item;
 
 typedef struct hash_table

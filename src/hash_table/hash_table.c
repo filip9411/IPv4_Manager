@@ -23,10 +23,10 @@ hash_table_item* createItem(uint32_t key, char value)
 {
     // Creates a pointer to a new hash_table item.
     hash_table_item* item = (hash_table_item*) malloc(sizeof(hash_table_item));
-    item->key = (uint32_t*) malloc(sizeof(uint32_t));
-    item->value = (char*) malloc(sizeof(char));
-    memcpy(item->key, &key, sizeof(uint32_t));
-    memcpy(item->value, &value, sizeof(char));
+    item->key = key;
+    item->value = value;
+    // memcpy(item->key, &key, sizeof(uint32_t));
+    // memcpy(item->value, &value, sizeof(char));
     return item;
 }
 
@@ -52,8 +52,8 @@ hash_table* createTable(int size)
 void freeItem(hash_table_item* item)
 {
     // Frees an item.
-    free(item->key);
-    free(item->value);
+    // free(item->key);
+    // free(item->value);
     free(item);
 }
 
@@ -85,7 +85,7 @@ void printTable(hash_table* table)
     {
         if (table->items[i])
         {
-            printf("Index:%d, Key:%u, Value:%s\n", i, *(table->items[i] -> key), table->items[i]->value);
+            printf("Index:%d, Key:%u, Value:%d\n", i, table->items[i] -> key, table->items[i]->value);
         }
     }
 
@@ -128,8 +128,8 @@ char* searchItem(hash_table* table, uint32_t key)
     // Provide only non-NULL values.
     if (item != NULL)
     {
-        if (*(item->key) == key)
-            return item->value;
+        if (item->key == key)
+            return &(item->value);
     }
 
     return NULL;
