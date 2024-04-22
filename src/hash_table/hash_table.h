@@ -23,7 +23,7 @@ typedef struct hash_table
  * @param value 
  * @return hash_table_item* 
  */
-hash_table_item* createItem(uint32_t* key, char* value);
+hash_table_item* createItem(uint32_t key, char value);
 
 /**
  * @brief Create a table object
@@ -47,7 +47,24 @@ void printTable(hash_table* table);
  * @param key 
  * @param value 
  */
-void insertItem(hash_table* table, uint32_t* key, char* value);
+void insertItem(hash_table* table, uint32_t key, char value);
+
+/**
+ * @brief 
+ * 
+ * @param table 
+ * @param key 
+ * @return char* 
+ */
+char* searchItem(hash_table* table, uint32_t key);
+
+/**
+ * @brief 
+ * 
+ * @param table 
+ * @param key 
+ */
+void deleteItem(hash_table* table, uint32_t key);
 
 
 #endif /* D08DC2F2_EEE3_4E82_A17A_E058AFC647FB */

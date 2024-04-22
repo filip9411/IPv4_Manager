@@ -14,17 +14,12 @@
  * @param str 
  * @return unsigned long 
  */
-uint32_t hashFunction(uint32_t* str)
+uint32_t hashFunction(uint32_t key)
 {
-    uint32_t i = 0;
-
-    for (int32_t j = 0; str[j]; j++)
-        i += str[j];
-
-    return i % CAPACITY;
+    return key % CAPACITY;
 }
 
-hash_table_item* createItem(uint32_t* key, char* value)
+hash_table_item* createItem(uint32_t key, char value)
 {
     // Creates a pointer to a new hash_table item.
     hash_table_item* item = (hash_table_item*) malloc(sizeof(hash_table_item));
@@ -97,7 +92,7 @@ void printTable(hash_table* table)
     printf("-------------------\n\n");
 }
 
-void insertItem(hash_table* table, uint32_t* key, char* value)
+void insertItem(hash_table* table, uint32_t key, char value)
 {
     hash_table_item* new_item = createItem(key, value);
     int32_t index = hashFunction(key);
@@ -121,4 +116,43 @@ void insertItem(hash_table* table, uint32_t* key, char* value)
         // Key already exists in the hash table. Update only the value.
     }
     return;
+}
+
+char* searchItem(hash_table* table, uint32_t key)
+{
+    // Searches for the key in the HashTable.
+    // Returns NULL if it doesn't exist.
+    int index = hashFunction(key);
+    hash_table_item* item = table->items[index];
+
+    // Provide only non-NULL values.
+    if (item != NULL)
+    {
+        if (strcmp(item->key, key) == 0)
+            return item->value;
+    }
+
+    return NULL;
+}
+
+void deleteItem(hash_table* table, uint32_t key)
+{
+    // Deletes an item from the table.
+    int index = hashFunction(key);
+    hash_table_item* item = table->items[index];
+
+    if (item == NULL)
+    {
+        // Does not exist.
+        return;
+    } else
+    {
+        // Collision chain does not exist.
+        // Remove the item.
+        // Set table index to NULL.
+        table->items[index] = NULL;
+        free_item(item);
+        table->count--;
+        return;
+    }
 }
