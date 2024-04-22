@@ -35,7 +35,7 @@ hash_table_item* createItem(uint32_t* key, char* value)
     return item;
 }
 
-hash_table* create_table(int size)
+hash_table* createTable(int size)
 {
     // Creates a new hash_table.
     hash_table* table = (hash_table*) malloc(sizeof(hash_table));
@@ -54,7 +54,7 @@ hash_table* create_table(int size)
  * 
  * @param item 
  */
-void free_item(hash_table_item* item)
+void freeItem(hash_table_item* item)
 {
     // Frees an item.
     free(item->key);
@@ -67,7 +67,7 @@ void free_item(hash_table_item* item)
  * 
  * @param table 
  */
-void free_table(hash_table* table)
+void freeTable(hash_table* table)
 {
     // Frees the table.
     for (int i = 0; i < table->size; i++)
@@ -75,14 +75,14 @@ void free_table(hash_table* table)
         hash_table_item* item = table->items[i];
 
         if (item != NULL)
-            free_item(item);
+            freeItem(item);
     }
 
     free(table->items);
     free(table);
 }
 
-void print_table(hash_table* table)
+void printTable(hash_table* table)
 {
     printf("\nHash Table\n-------------------\n");
 
@@ -97,7 +97,7 @@ void print_table(hash_table* table)
     printf("-------------------\n\n");
 }
 
-void insert(hash_table* table, uint32_t* key, char* value)
+void insertItem(hash_table* table, uint32_t* key, char* value)
 {
     hash_table_item* new_item = createItem(key, value);
     int32_t index = hashFunction(key);
@@ -109,8 +109,8 @@ void insert(hash_table* table, uint32_t* key, char* value)
         if (table->count == table->size)
         {
             // HashTable is full.
-            printf("Insert Error: Hash Table is full\n");
-            free_item(new_item);
+            printf("insertItem Error: Hash Table is full\n");
+            freeItem(new_item);
             return;
         }
 
