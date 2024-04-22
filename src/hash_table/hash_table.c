@@ -156,3 +156,18 @@ void deleteItem(hash_table* table, uint32_t key)
         return;
     }
 }
+
+void printSearch(hash_table *table, uint32_t key)
+{
+    char* val;
+
+    if ((val = searchItem(table, key)) == NULL)
+    {
+        printf("Key:%u does not exist\n", key);
+        return;
+    }
+    else
+    {
+        printf("Key:%u, Value:%d\n", key, *(val));
+    }
+}

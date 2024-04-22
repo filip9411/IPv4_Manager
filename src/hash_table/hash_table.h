@@ -66,5 +66,13 @@ char* searchItem(hash_table* table, uint32_t key);
  */
 void deleteItem(hash_table* table, uint32_t key);
 
+/**
+ * @brief 
+ * 
+ * @param table 
+ * @param key 
+ */
+void printSearch(hash_table *table, uint32_t key);
+
 
 #endif /* D08DC2F2_EEE3_4E82_A17A_E058AFC647FB */
