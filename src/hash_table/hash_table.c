@@ -24,9 +24,9 @@ hash_table_item* createItem(uint32_t key, char value)
     // Creates a pointer to a new hash_table item.
     hash_table_item* item = (hash_table_item*) malloc(sizeof(hash_table_item));
     item->key = (uint32_t*) malloc(sizeof(uint32_t));
-    item->value = (char*) malloc(strlen(value) + 1);
-    memcpy(item->key, key, sizeof(uint32_t));
-    memcpy(item->value, value, sizeof(char));
+    item->value = (char*) malloc(sizeof(char));
+    memcpy(item->key, &key, sizeof(uint32_t));
+    memcpy(item->value, &value, sizeof(char));
     return item;
 }
 
@@ -128,7 +128,7 @@ char* searchItem(hash_table* table, uint32_t key)
     // Provide only non-NULL values.
     if (item != NULL)
     {
-        if (strcmp(item->key, key) == 0)
+        if (*(item->key) == key)
             return item->value;
     }
 
