@@ -151,7 +151,7 @@ void deleteItem(hash_table* table, uint32_t key)
         // Remove the item.
         // Set table index to NULL.
         table->items[index] = NULL;
-        free_item(item);
+        freeItem(item);
         table->count--;
         return;
     }
