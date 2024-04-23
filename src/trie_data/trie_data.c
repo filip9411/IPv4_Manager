@@ -4,9 +4,11 @@
 
 #define MAX_MASK 32
 
-trie_node *createTrieNode() {
+trie_node *createTrieNode()
+{
     trie_node *node = (trie_node *)malloc(sizeof(trie_node));
-    if (node == NULL) {
+    if (node == NULL)
+    {
         return NULL;
     }
     node->mask = -1;
@@ -15,10 +17,12 @@ trie_node *createTrieNode() {
     return node;
 }
 
-void addPrefixToTrie(trie_node **root, uint32_t base, char mask) {
+void addPrefixToTrie(trie_node **root, uint32_t base, char mask)
+{
     trie_node *current = *root;
 
-    for (uint8_t i = MAX_MASK; i >= mask; i--) {
+    for (uint8_t i = MAX_MASK; i >= mask; i--)
+    {
         uint8_t bit = (base >> i) & (uint32_t)1;
         if (current->children[bit] == NULL)
             current->children[bit] = createTrieNode();
@@ -27,12 +31,14 @@ void addPrefixToTrie(trie_node **root, uint32_t base, char mask) {
     current->mask = mask;
 }
 
-void deletePrefixFromTrie(trie_node **root, uint32_t base, char mask) {
+void deletePrefixFromTrie(trie_node **root, uint32_t base, char mask)
+{
     trie_node *current = *root;
     trie_node *parent = NULL;
     uint8_t bit;
 
-    for (uint8_t i = MAX_MASK; i >= mask; i--) {
+    for (uint8_t i = MAX_MASK; i >= mask; i--)
+    {
         bit = (base >> i) & (uint32_t)1;
         if (current->children[bit] == NULL)
             return;
@@ -40,25 +46,33 @@ void deletePrefixFromTrie(trie_node **root, uint32_t base, char mask) {
         current = current->children[bit];
     }
 
-    if (current->children[0] == NULL && current->children[1] == NULL) {
+    if (current->children[0] == NULL && current->children[1] == NULL)
+    {
         free(current);
         parent->children[bit] = NULL;
-    } else {
+    }
+    else
+    {
         current->mask = -1;
     }
 }
 
-char checkInTrie(trie_node **root, uint32_t ip) {
+char checkInTrie(trie_node **root, uint32_t ip)
+{
     trie_node *current = *root;
     char maxMask = -1;
 
-    for (uint8_t i = MAX_MASK; i >= 0; i--) {
+    for (uint8_t i = MAX_MASK; i >= 0; i--)
+    {
         uint8_t bit = (ip >> i) & (uint32_t)1;
-        if (current->children[bit] != NULL) {
+        if (current->children[bit] != NULL)
+        {
             current = current->children[bit];
             if (current->mask != -1 && current->mask > maxMask)
                 maxMask = current->mask;
-        } else {
+        }
+        else
+        {
             break;
         }
     }
@@ -66,7 +80,8 @@ char checkInTrie(trie_node **root, uint32_t ip) {
     return maxMask;
 }
 
-void freeTrie(trie_node *root) {
+void freeTrie(trie_node *root)
+{
     if (root == NULL)
         return;
 
