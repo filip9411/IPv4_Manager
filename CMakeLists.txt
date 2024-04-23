@@ -16,3 +16,5 @@ add_subdirectory(src)
 target_link_libraries(${PROJECT_NAME} PUBLIC
     ip_manager
 )
+
+target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Werror)
