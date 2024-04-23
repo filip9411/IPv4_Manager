@@ -9,7 +9,7 @@ trie_node *createTrieNode() {
     if (node == NULL) {
         return NULL;
     }
-    node->mask = -1; // Ustawienie maski na -1 oznacza brak pasującego prefiksu
+    node->mask = -1;
     node->children[0] = NULL;
     node->children[1] = NULL;
     return node;
@@ -32,22 +32,18 @@ void deletePrefixFromTrie(trie_node **root, uint32_t base, char mask) {
     trie_node *parent = NULL;
     uint8_t bit;
 
-    // Przechodzenie do węzła zawierającego prefiks do usunięcia
     for (uint8_t i = MAX_MASK; i >= mask; i--) {
         bit = (base >> i) & (uint32_t)1;
         if (current->children[bit] == NULL)
-            return; // Prefiks nie istnieje w drzewie
+            return;
         parent = current;
         current = current->children[bit];
     }
 
-    // Usuwanie prefiksu i naprawa struktury drzewa Trie
     if (current->children[0] == NULL && current->children[1] == NULL) {
-        // Usuwanie liścia
         free(current);
         parent->children[bit] = NULL;
     } else {
-        // Usuwanie węzła wewnętrznego
         current->mask = -1;
     }
 }
