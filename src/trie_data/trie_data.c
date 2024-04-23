@@ -17,7 +17,7 @@ trie_node *createTrieNode()
     return node;
 }
 
-void addPrefixToTrie(trie_node **root, uint32_t base, char mask)
+void addPrefixToTrie(trie_node **root, const uint32_t base, const char mask)
 {
     trie_node *current = *root;
 
@@ -31,7 +31,7 @@ void addPrefixToTrie(trie_node **root, uint32_t base, char mask)
     current->mask = mask;
 }
 
-void deletePrefixFromTrie(trie_node **root, uint32_t base, char mask)
+void deletePrefixFromTrie(trie_node **root, const uint32_t base, const char mask)
 {
     trie_node *current = *root;
     trie_node *parent = NULL;
@@ -57,7 +57,7 @@ void deletePrefixFromTrie(trie_node **root, uint32_t base, char mask)
     }
 }
 
-char checkInTrie(trie_node **root, uint32_t ip)
+char checkInTrie(trie_node **root, const uint32_t ip)
 {
     trie_node *current = *root;
     char maxMask = -1;

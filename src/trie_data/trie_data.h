@@ -22,7 +22,7 @@ trie_node *createTrieNode();
  * @param base 
  * @param mask 
  */
-void addPrefixToTrie(trie_node **root, uint32_t base, char mask);
+void addPrefixToTrie(trie_node **root, const uint32_t base, const char mask);
 
 /**
  * @brief Delete element from Trie data structure.
@@ -31,7 +31,7 @@ void addPrefixToTrie(trie_node **root, uint32_t base, char mask);
  * @param base
  * @param mask
  */
-void deletePrefixFromTrie(trie_node **root, uint32_t base, char mask);
+void deletePrefixFromTrie(trie_node **root, const uint32_t base, const char mask);
 
 /**
  * @brief Check if element is present in Trie data structure. 
@@ -40,7 +40,7 @@ void deletePrefixFromTrie(trie_node **root, uint32_t base, char mask);
  * @param ip
  * @return char
  */
-char checkInTrie(trie_node **root, uint32_t ip);
+char checkInTrie(trie_node **root, const uint32_t ip);
 
 /**
  * @brief Destruct Trie data structure. 
