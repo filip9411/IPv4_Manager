@@ -17,8 +17,6 @@ int main()
     add(root, 0x0A140000, 24); // 10.20.0.0/24
     assert(check(root, 0x0A140000) == 24U);
 
-    assert(check(root, 0x0A141000) == 24U); // 10.20.1.0
-
     del(root, 0x0A140000, 24); // 10.20.0.0/24
     assert(check(root, 0x0A140000) == 16U);
 
@@ -26,15 +24,9 @@ int main()
     assert(check(root, 0x0A140000) == -1);
 
     add(root, 0x20408000, 20); // 32.64.128.0/20
+    assert(check(root, 0x20408FFA) == 20);
 
     printf("OK - all assertions passed.\n");
-
-    // printf("Check 10.20.1.1: %d\n", check(root, 0x0A140101));
-    // printf("Check 32.64.128.0: %d\n", check(root, 0x20408000));
-    // printf("Check 32.64.144.0: %d\n", check(root, 0x20409000));
-    // printf("Check 192.168.1.1: %d\n", check(root, 0xC0A80101));
-    // printf("Check 10.20.0.0: %d\n", check(root, 0x0A140000));
-
     freeTrie(root);
     return 0;
 }
