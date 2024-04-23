@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include "trie_data.h"
 
 /**
  * @brief 
@@ -16,11 +17,9 @@ bool printHello();
 /**
  * @brief 
  * 
- * @param base 
- * @param mask 
- * @return int32_t 
+ * @return trie_node* 
  */
-int32_t add(uint32_t base, char mask);
+trie_node* initContainer();
 
 /**
  * @brief 
@@ -29,7 +28,16 @@ int32_t add(uint32_t base, char mask);
  * @param mask 
  * @return int32_t 
  */
-int32_t del(uint32_t base, char mask);
+int32_t add(trie_node* container, uint32_t base, char mask);
+
+/**
+ * @brief 
+ * 
+ * @param base 
+ * @param mask 
+ * @return int32_t 
+ */
+int32_t del(trie_node* container, uint32_t base, char mask);
 
 /**
  * @brief 
@@ -37,7 +45,7 @@ int32_t del(uint32_t base, char mask);
  * @param ip 
  * @return char 
  */
-char check(uint32_t ip);
+char check(trie_node* container, uint32_t ip);
 
 
 #endif /* E38D31D7_475B_4425_876D_CBA539831D99 */
