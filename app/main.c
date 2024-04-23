@@ -18,6 +18,8 @@ int main()
 
     printSearch(ht, 1U);
     printSearch(ht, 2U);
+    deleteItem(ht, 2U);
+    printSearch(ht, 2U);
 
     assert(true);
     printf("OK - all assertions passed.\n");
