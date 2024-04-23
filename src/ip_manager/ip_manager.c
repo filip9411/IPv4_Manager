@@ -2,6 +2,7 @@
 #include <stdbool.h>
 
 #include"ip_manager.h"
+#include "trie_data.h"
 
 bool printHello()
 {
