@@ -9,7 +9,7 @@ ip_container *initContainer()
     return createTrieNode();
 }
 
-int32_t add(ip_container *container, uint32_t base, char mask)
+int32_t add(ip_container *container, const uint32_t base, const char mask)
 {
     if (mask <= 0U || mask > 32U)
         return -1;
@@ -19,7 +19,7 @@ int32_t add(ip_container *container, uint32_t base, char mask)
     return 0;
 }
 
-int32_t del(ip_container *container, uint32_t base, char mask)
+int32_t del(ip_container *container, const uint32_t base, const char mask)
 {
     if (mask <= 0U || mask > 32U)
         return -1;
@@ -29,7 +29,7 @@ int32_t del(ip_container *container, uint32_t base, char mask)
     return 0;
 }
 
-char check(ip_container *container, uint32_t ip)
+char check(ip_container *container, const uint32_t ip)
 {
     return checkInTrie(&container, ip);
 }

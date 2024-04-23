@@ -23,7 +23,7 @@ ip_container *initContainer();
  * @param mask
  * @return int32_t
  */
-int32_t add(ip_container *container, uint32_t base, char mask);
+int32_t add(ip_container *container, const uint32_t base, const char mask);
 
 /**
  * @brief Delete base and mask pair from the container.
@@ -33,7 +33,7 @@ int32_t add(ip_container *container, uint32_t base, char mask);
  * @param mask
  * @return int32_t
  */
-int32_t del(ip_container *container, uint32_t base, char mask);
+int32_t del(ip_container *container, const uint32_t base, const char mask);
 
 /**
  * @brief Check if passed IP number is present in container.
@@ -43,6 +43,6 @@ int32_t del(ip_container *container, uint32_t base, char mask);
  * @param ip
  * @return char
  */
-char check(ip_container *container, uint32_t ip);
+char check(ip_container *container, const uint32_t ip);
 
 #endif /* E38D31D7_475B_4425_876D_CBA539831D99 */
