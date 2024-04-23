@@ -15,7 +15,6 @@ trie_node *createTrieNode() {
     return node;
 }
 
-// Funkcja dodająca prefiks do drzewa trie
 void addPrefixToTrie(trie_node *root, uint32_t base, char mask) {
     trie_node *current = root;
 
@@ -28,7 +27,6 @@ void addPrefixToTrie(trie_node *root, uint32_t base, char mask) {
     current->mask = mask;
 }
 
-// Funkcja sprawdzająca czy adres IP zawiera się w drzewie trie
 char checkInTrie(trie_node *root, uint32_t ip) {
     trie_node *current = root;
     char maxMask = -1;
@@ -47,7 +45,6 @@ char checkInTrie(trie_node *root, uint32_t ip) {
     return maxMask;
 }
 
-// Funkcja zwalniająca pamięć zajmowaną przez drzewo trie
 void freeTrie(trie_node *root) {
     if (root == NULL)
         return;
