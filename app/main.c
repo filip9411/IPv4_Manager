@@ -4,9 +4,7 @@
 #include "ip_manager.h"
 
 int main()
-{
-    printHello();
-    
+{   
     ip_container *root = initContainer();
 
     add(root, 0x0A140000, 16);
