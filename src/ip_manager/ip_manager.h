@@ -9,23 +9,16 @@
 typedef trie_node ip_container;
 
 /**
- * @brief
+ * @brief Init container to store IP prefixes.
  *
- * @return true
- * @return false
- */
-bool printHello();
-
-/**
- * @brief
- *
- * @return trie_node*
+ * @return ip_container*
  */
 ip_container *initContainer();
 
 /**
- * @brief
+ * @brief Add base and mask pair to container.
  *
+ * @param container
  * @param base
  * @param mask
  * @return int32_t
@@ -33,8 +26,9 @@ ip_container *initContainer();
 int32_t add(ip_container *container, uint32_t base, char mask);
 
 /**
- * @brief
+ * @brief Delete base and mask pair from the container.
  *
+ * @param container
  * @param base
  * @param mask
  * @return int32_t
@@ -42,8 +36,10 @@ int32_t add(ip_container *container, uint32_t base, char mask);
 int32_t del(ip_container *container, uint32_t base, char mask);
 
 /**
- * @brief
+ * @brief Check if passed IP number is present in container.
+ * Returns maximum mask value found for campatible base/mask pair.
  *
+ * @param container
  * @param ip
  * @return char
  */

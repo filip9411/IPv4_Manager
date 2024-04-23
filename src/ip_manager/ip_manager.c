@@ -4,11 +4,6 @@
 #include "ip_manager.h"
 #include "trie_data.h"
 
-bool printHello()
-{
-    printf("Hello World!!!\n");
-}
-
 ip_container *initContainer()
 {
     return createTrieNode();
