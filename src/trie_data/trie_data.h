@@ -27,6 +27,15 @@ void addPrefixToTrie(trie_node *root, uint32_t base, char mask);
  * @brief 
  * 
  * @param root 
+ * @param base 
+ * @param mask 
+ */
+void deletePrefixFromTrie(trie_node *root, uint32_t base, char mask);
+
+/**
+ * @brief 
+ * 
+ * @param root 
  * @param ip 
  * @return char 
  */
