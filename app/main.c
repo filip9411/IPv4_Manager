@@ -14,9 +14,9 @@ int main()
     add(root, 0x0A140000, 16); // 10.20.0.0/16
     assert(check(root, 0x0A140000) == 16U);
 
-    add(root, 0x0A140000, 24); // 10.20.0.0/24
-    assert(check(root, 0x0A140000) == 24U);
-    assert(check(root, 0x0A140100) == 16U);
+    add(root, 0x0A14FFFF, 24); // 10.20.0.0/24
+    assert(check(root, 0x0A140000) == 16U);
+    assert(check(root, 0x0A14FFFF) == 24U);
 
     del(root, 0x0A140000, 24); // 10.20.0.0/24
     assert(check(root, 0x0A140000) == 16U);
