@@ -11,12 +11,16 @@ bool printHello()
 
 int32_t add(uint32_t base, char mask)
 {
-    return -1;
+    if(mask <= 0U || mask > 32U) return -1;
+
+    return 0;
 }
 
 int32_t del(uint32_t base, char mask)
 {
-    return -1;
+    if(mask <= 0U || mask > 32U) return -1;
+
+    return 0;
 }
 
 char check(uint32_t ip)
