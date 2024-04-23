@@ -8,6 +8,13 @@ typedef struct trie_node {
 } trie_node;
 
 /**
+ * @brief Create a Trie Node object
+ * 
+ * @return trie_node* 
+ */
+trie_node* createTrieNode();
+
+/**
  * @brief 
  * 
  * @param root 
