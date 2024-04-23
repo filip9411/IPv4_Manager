@@ -1,2 +1,1 @@
 add_subdirectory(ip_manager)
-add_subdirectory(trie_data)
