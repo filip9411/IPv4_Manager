@@ -21,7 +21,7 @@ trie_node* createTrieNode();
  * @param base 
  * @param mask 
  */
-void addPrefixToTrie(trie_node *root, uint32_t base, char mask);
+void addPrefixToTrie(trie_node **root, uint32_t base, char mask);
 
 /**
  * @brief 
@@ -30,7 +30,7 @@ void addPrefixToTrie(trie_node *root, uint32_t base, char mask);
  * @param base 
  * @param mask 
  */
-void deletePrefixFromTrie(trie_node *root, uint32_t base, char mask);
+void deletePrefixFromTrie(trie_node **root, uint32_t base, char mask);
 
 /**
  * @brief 
@@ -39,7 +39,7 @@ void deletePrefixFromTrie(trie_node *root, uint32_t base, char mask);
  * @param ip 
  * @return char 
  */
-char checkInTrie(trie_node *root, uint32_t ip);
+char checkInTrie(trie_node **root, uint32_t ip);
 
 /**
  * @brief 
