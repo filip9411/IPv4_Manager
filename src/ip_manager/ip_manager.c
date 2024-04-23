@@ -4,8 +4,6 @@
 #include"ip_manager.h"
 #include "trie_data.h"
 
-typedef trie_node ip_container;
-
 bool printHello()
 {
     printf("Hello World!!!\n");
