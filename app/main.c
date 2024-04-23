@@ -4,7 +4,7 @@
 #include "ip_manager.h"
 
 int main()
-{   
+{
     ip_container *root = initContainer();
 
     assert(add(root, 1234, 45) == -1); // add() with wrong parameters
