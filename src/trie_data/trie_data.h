@@ -10,22 +10,22 @@ typedef struct trie_node
 
 /**
  * @brief Create a Trie Node object
- *
- * @return trie_node*
+ * 
+ * @return trie_node* 
  */
 trie_node *createTrieNode();
 
 /**
- * @brief
- *
- * @param root
- * @param base
- * @param mask
+ * @brief Add element to Trie data structure. 
+ * 
+ * @param root 
+ * @param base 
+ * @param mask 
  */
 void addPrefixToTrie(trie_node **root, uint32_t base, char mask);
 
 /**
- * @brief
+ * @brief Delete element from Trie data structure.
  *
  * @param root
  * @param base
@@ -34,7 +34,7 @@ void addPrefixToTrie(trie_node **root, uint32_t base, char mask);
 void deletePrefixFromTrie(trie_node **root, uint32_t base, char mask);
 
 /**
- * @brief
+ * @brief Check if element is present in Trie data structure. 
  *
  * @param root
  * @param ip
@@ -43,7 +43,7 @@ void deletePrefixFromTrie(trie_node **root, uint32_t base, char mask);
 char checkInTrie(trie_node **root, uint32_t ip);
 
 /**
- * @brief
+ * @brief Destruct Trie data structure. 
  *
  * @param root
  */
