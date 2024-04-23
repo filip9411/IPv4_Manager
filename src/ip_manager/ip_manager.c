@@ -8,18 +8,31 @@ bool printHello()
 {
     printf("Hello World!!!\n");
 }
-
-int32_t add(uint32_t base, char mask)
+ 
+ip_container* initContainer()
 {
-    return -1;
+    return createTrieNode();
 }
 
-int32_t del(uint32_t base, char mask)
+int32_t add(ip_container* container, uint32_t base, char mask)
 {
-    return -1;
-}
+    if(mask <= 0U || mask > 32U) return -1;
 
-char check(uint32_t ip)
-{
+    addPrefixToTrie(container, base, mask);
+
     return 0;
+}
+
+int32_t del(ip_container* container, uint32_t base, char mask)
+{
+    if(mask <= 0U || mask > 32U) return -1;
+
+    deletePrefixFromTrie(container, base, mask);
+    
+    return 0;
+}
+
+char check(ip_container* container, uint32_t ip)
+{
+    return checkInTrie(container, ip);
 }
